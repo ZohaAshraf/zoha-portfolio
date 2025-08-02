@@ -1,0 +1,346 @@
+/* Reset defaults for clean slate */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Orbitron', -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #2d3748;
+  background: #f5f7fa;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle background texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="2" fill="rgba(160,174,192,0.05)" /%3E%3C/svg%3E');
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* Container with slight tilt for uniqueness */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+}
+
+/* Header with asymmetrical design */
+header {
+  background: none;
+  padding: 6rem 0 3rem;
+  text-align: left;
+  position: relative;
+  border-bottom: 2px solid #a0aec0;
+  transform: skewY(-3deg);
+  margin-bottom: 3rem;
+}
+
+header .container {
+  transform: skewY(3deg);
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #2d3748;
+  text-shadow: 0 0 10px #2d3748, 0 0 20px #a0aec0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+}
+
+header h1::after {
+  content: '</>';
+  font-size: 1.5rem;
+  color: #2d3748;
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header p {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #2d3748;
+  max-width: 500px;
+  margin-top: 1rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Section styling with dynamic borders */
+section {
+  padding: 4rem 0;
+  position: relative;
+  margin: 2rem 0;
+}
+
+section h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  border-left: 4px solid #a0aec0;
+  text-shadow: 0 0 8px rgba(45, 55, 72, 0.3);
+}
+
+/* About section with glitch effect */
+#about .container {
+  background: rgba(237, 242, 247, 0.8);
+  padding: 2.5rem;
+  border: 1px solid #a0aec0;
+  border-radius: 0 20px 0 20px;
+  position: relative;
+}
+
+#about p {
+  font-size: 1.2rem;
+  color: #2d3748;
+  line-height: 1.8;
+  font-family: 'Roboto Mono', monospace;
+  animation: glitch 4s infinite alternate;
+}
+
+@keyframes glitch {
+  0%, 90% { transform: translate(0, 0); }
+  91% { transform: translate(2px, 0); }
+  92% { transform: translate(-2px, 0); }
+  93% { transform: translate(0, 2px); }
+}
+
+/* Skills section with professional button-style cards */
+#skills .container {
+  padding: 0;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.skills-list li {
+  background: linear-gradient(90deg, #00c4cc, #007bff);
+  color: #f5f7fa;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 180px;
+  display: inline-block;
+}
+
+.skills-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 86, 179, 0.2);
+  background: linear-gradient(90deg, #00a3b1, #0056b3);
+}
+
+/* Projects section with holographic cards */
+.project {
+  background: linear-gradient(135deg, rgba(237, 242, 247, 0.9), rgba(245, 247, 250, 0.9));
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #a0aec0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(45, 55, 72, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project:hover::before {
+  opacity: 1;
+}
+
+.project h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.project .label {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #007bff;
+  background: rgba(0, 123, 255, 0.2);
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+}
+
+.project p {
+  color: #2d3748;
+  font-size: 1.05rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Design portfolio with animated reveal */
+.design-list {
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.design-list li {
+  font-size: 1.2rem;
+  color: #2d3748;
+  padding: 0.8rem 0;
+  padding-left: 2.5rem;
+  position: relative;
+  opacity: 0;
+  animation: reveal 0.6s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+.design-list li::before {
+  content: '>';
+  color: #007bff;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@keyframes reveal {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Contact section with button-like links */
+#contact {
+  background: #edf2f7;
+  padding: 5rem 0;
+  border-top: 3px solid #a0aec0;
+}
+
+#contact p {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#contact a {
+  color: #2d3748;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #a0aec0;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#contact a:hover {
+  background: #a0aec0;
+  border-color: #a0aec0;
+  color: #f5f7fa;
+  box-shadow: 0 0 12px #0056b3;
+}
+
+#contact p:last-child {
+  font-style: italic;
+  color: #718096;
+}
+
+/* Footer with circuit board effect */
+footer {
+  background: #2d3748;
+  color: #f5f7fa;
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  border-top: 1px dashed #a0aec0;
+}
+
+footer p {
+  font-size: 1rem;
+  font-family: 'Roboto Mono', monospace;
+  opacity: 0.7;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+
+  header h1::after {
+    font-size: 1.2rem;
+    right: -40px;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
+
+  section h2 {
+    font-size: 2.2rem;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 4rem 0 2rem;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  #about .container {
+    padding: 1.5rem;
+  }
+}
